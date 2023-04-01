@@ -96,11 +96,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DungeonSegmentCorridorVertical
       objectReference: {fileID: 0}
-    - target: {fileID: 7605845942946745134, guid: 0104f280c1dc0f0419e0dc151f10698a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8125974408156432810, guid: 0104f280c1dc0f0419e0dc151f10698a,
         type: 3}
       propertyPath: m_RootOrder

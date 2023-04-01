@@ -11,6 +11,7 @@ public class PlayerInputHelper : MonoBehaviour
 
     public static event Action<Vector2> OnMoveChanged;
     public static event Action OnInterractPressed;
+    public static event Action OnAttack;
 
     private void Awake()
     {
@@ -27,6 +28,19 @@ public class PlayerInputHelper : MonoBehaviour
 
         playerInputActions.Player.Move.performed += Move_performed;
         playerInputActions.Player.Interract.performed += Interract_performed;
+        playerInputActions.Player.Attack.performed += Attack_performed;
+    }
+
+    private void OnDestroy()
+    {
+        playerInputActions.Player.Move.performed -= Move_performed;
+        playerInputActions.Player.Interract.performed -= Interract_performed;
+        playerInputActions.Player.Attack.performed -= Attack_performed;
+    }
+
+    private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnAttack?.Invoke();
     }
 
     private void Interract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
