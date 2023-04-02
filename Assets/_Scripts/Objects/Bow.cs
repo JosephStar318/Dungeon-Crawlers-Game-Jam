@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowTargeting : MonoBehaviour
+public class Bow : MonoBehaviour
 {
+    public static event Action OnBowDraw;
+    public static event Action OnArrowShoot;
+
     private const string DRAWING = "isDrawing";
 
     [SerializeField] private Transform bow;
@@ -35,6 +38,10 @@ public class BowTargeting : MonoBehaviour
     {
         anim.SetBool(DRAWING, isDrawing);
         this.isDrawing = isDrawing;
+        if (isDrawing)
+        {
+            OnBowDraw?.Invoke();
+        }
     }
 
     private void LateUpdate()
@@ -64,6 +71,7 @@ public class BowTargeting : MonoBehaviour
             attachedArrow.GetComponent<Rigidbody>().AddForce(attachedArrow.forward * arrowForce, ForceMode.Impulse);
             Destroy(attachedArrow.gameObject, 4f);
             Invoke(nameof(CreateNewArrow), 0.5f);
+            OnArrowShoot?.Invoke();
         }
     }
 

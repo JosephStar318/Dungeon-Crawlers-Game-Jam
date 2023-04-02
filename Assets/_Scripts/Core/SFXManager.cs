@@ -10,12 +10,25 @@ public class SFXManager : MonoBehaviour
         Player.OnPlayerMoved += Player_OnPlayerMoved;
         MeleAttack.OnMeleAttackSwing += MeleAttack_OnMeleAttackSwing;
         MeleAttack.OnMeleAttackHit += MeleAttack_OnMeleAttackHit;
+        Bow.OnBowDraw += Bow_OnBowDraw;
+        Bow.OnArrowShoot += Bow_OnArrowShoot;
     }
     private void OnDisable()
     {
         Player.OnPlayerMoved -= Player_OnPlayerMoved;
         MeleAttack.OnMeleAttackSwing -= MeleAttack_OnMeleAttackSwing;
         MeleAttack.OnMeleAttackHit -= MeleAttack_OnMeleAttackHit;
+        Bow.OnBowDraw -= Bow_OnBowDraw;
+        Bow.OnArrowShoot -= Bow_OnArrowShoot;
+    }
+    private void Bow_OnArrowShoot()
+    {
+        AudioUtility.CreateSFX(audioClipRefsSO.arrowShoot, transform.position, AudioUtility.AudioGroups.SFX, 1f);
+    }
+
+    private void Bow_OnBowDraw()
+    {
+        AudioUtility.CreateSFX(audioClipRefsSO.bowStreching, transform.position, AudioUtility.AudioGroups.SFX, 1f);
     }
     private void MeleAttack_OnMeleAttackHit()
     {

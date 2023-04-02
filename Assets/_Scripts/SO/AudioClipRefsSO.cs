@@ -9,4 +9,6 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] getHitClips;
     public AudioClip[] monsterGetHitClips;
     public AudioClip[] monsterDieClips;
+    public AudioClip bowStreching;
+    public AudioClip arrowShoot;
 }

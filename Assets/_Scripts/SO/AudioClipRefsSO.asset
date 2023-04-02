@@ -19,12 +19,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a812a89ccd1c91b4980d4086bc80bf3b, type: 3}
   - {fileID: 8300000, guid: 68ed13ec378368345ae0439bd5c59be6, type: 3}
   swings:
-  - {fileID: 8300000, guid: 7ef92762b9d2f1748b9aa7811a62a88c, type: 3}
-  - {fileID: 8300000, guid: 21bfee316e7f0e74dac91bd843505d51, type: 3}
-  getHitClips: []
+  - {fileID: 8300000, guid: e7d39696a737e674f833ed0345ae49a2, type: 3}
+  - {fileID: 8300000, guid: cf57c4a9c667af34db64c0ceeb9caeda, type: 3}
+  - {fileID: 8300000, guid: 08505d81ba930414385a83a92136acfc, type: 3}
+  getHitClips:
+  - {fileID: 8300000, guid: bc08d35f2198006498f869c4cb0ed74f, type: 3}
   monsterGetHitClips:
   - {fileID: 8300000, guid: 90c3f7347fe5d154db9b4fe7894b60e2, type: 3}
   - {fileID: 8300000, guid: bf380141753a96f44acd860e95ec7ac2, type: 3}
   - {fileID: 8300000, guid: 319e999b1bf949746bf30c6efa514e04, type: 3}
   monsterDieClips:
   - {fileID: 8300000, guid: 2418e64f046d0874f9ac7405cbbd9ecb, type: 3}
+  bowStreching: {fileID: 8300000, guid: 517cbc2597b700248b5c898e7c422b38, type: 3}
+  arrowShoot: {fileID: 8300000, guid: cdddb889478538d43ab0b0f61573008e, type: 3}
