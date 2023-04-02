@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponHolder : MonoBehaviour
+public class WeaponTargeting : MonoBehaviour
 {
 
     private Vector2 startPos;
@@ -41,7 +41,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void PlayerInputHelper_OnAttack()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(CustomCursor.Position);
         targetPos = transform.InverseTransformPoint(ray.GetPoint(0.01f));
         delta = 0;
         isAttacking = true;

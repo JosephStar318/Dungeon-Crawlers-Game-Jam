@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
             DungeonSegment dungeonSegment;
             TryGetDungeonSegmentInMoveDirection(1, out dungeonSegment);
             currentDungeonSegment = dungeonSegment;
+            currentDungeonSegment.ShowInMinimap();
             SetTargetPosition(dungeonSegment.GetPivotPosition());
             isUsingPortal = false;
 
@@ -124,6 +125,7 @@ public class Player : MonoBehaviour
             if (TryGetDungeonSegmentInMoveDirection(dir.y, out dungeonSegment))
             {
                 currentDungeonSegment = dungeonSegment;
+                currentDungeonSegment.ShowInMinimap();
                 SetTargetPosition(dungeonSegment.GetPivotPosition());
             }
         }

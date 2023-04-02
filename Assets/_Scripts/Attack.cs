@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour
     private void PlayerInputHelper_OnAttack()
     {
         Vector3 rayPos = Camera.main.transform.position;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(CustomCursor.Position);
 
         if(Physics.Raycast(ray, out RaycastHit hit, attackRange, attackableLayers))
         {
