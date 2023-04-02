@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896cb1db5669e8b4e8da10717219b063, type: 3}
+  m_Name: AudioClipRefsSO
+  m_EditorClassIdentifier: 
+  footSteps:
+  - {fileID: 8300000, guid: 291570f6b322c964eae67724ff86ca84, type: 3}
+  - {fileID: 8300000, guid: 5f6e9e4daa8b54746b1225bffb77761c, type: 3}
+  - {fileID: 8300000, guid: 09b3b92bfcf11ea4784db2cce177af71, type: 3}
+  - {fileID: 8300000, guid: a812a89ccd1c91b4980d4086bc80bf3b, type: 3}
+  - {fileID: 8300000, guid: 68ed13ec378368345ae0439bd5c59be6, type: 3}
+  swings:
+  - {fileID: 8300000, guid: 7ef92762b9d2f1748b9aa7811a62a88c, type: 3}
+  - {fileID: 8300000, guid: 21bfee316e7f0e74dac91bd843505d51, type: 3}
+  getHitClips: []
+  monsterGetHitClips:
+  - {fileID: 8300000, guid: 90c3f7347fe5d154db9b4fe7894b60e2, type: 3}
+  - {fileID: 8300000, guid: bf380141753a96f44acd860e95ec7ac2, type: 3}
+  - {fileID: 8300000, guid: 319e999b1bf949746bf30c6efa514e04, type: 3}
+  monsterDieClips:
+  - {fileID: 8300000, guid: 2418e64f046d0874f9ac7405cbbd9ecb, type: 3}

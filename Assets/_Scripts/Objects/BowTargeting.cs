@@ -14,16 +14,11 @@ public class BowTargeting : MonoBehaviour
     [SerializeField] private float arrowForce;
 
     private Animator anim;
-    private Vector3 rightEuler;
-    private Vector3 leftEuler;
     private bool isDrawing;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-
-        rightEuler = bow.localEulerAngles;
-        leftEuler = bow.localEulerAngles - Vector3.up * 60f;
     }
     private void OnEnable()
     {

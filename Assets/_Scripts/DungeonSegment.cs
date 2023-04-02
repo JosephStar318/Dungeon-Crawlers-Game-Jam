@@ -25,5 +25,9 @@ public class DungeonSegment : MonoBehaviour
         curtain.SetActive(false);
     }
 
+    public void EnableAccess()
+    {
+        isAccessable = true;
+    }
 
 }
