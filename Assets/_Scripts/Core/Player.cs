@@ -33,15 +33,12 @@ public class Player : MonoBehaviour
     private bool isMoving = false;
     private bool isUsingPortal = false;
 
-
     private void OnEnable()
     {
         PlayerInputHelper.OnMoveChanged += PlayerInputHelper_OnMoveChanged;
         PlayerInputHelper.OnInterractPressed += PlayerInputHelper_OnInterractPressed;
         Portal.OnPortalInterract += Portal_OnPortalInterract;
     }
-
-
 
     private void OnDisable()
     {

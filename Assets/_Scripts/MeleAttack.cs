@@ -11,6 +11,9 @@ public class MeleAttack : MonoBehaviour
     [SerializeField] private LayerMask attackableLayers;
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackRange;
+    [SerializeField] private float attackCooldown = 0.5f;
+
+    private float lastAttackTime;
 
     private void OnEnable()
     {
@@ -22,16 +25,21 @@ public class MeleAttack : MonoBehaviour
     }
     private void PlayerInputHelper_OnAttack()
     {
-        Vector3 rayPos = Camera.main.transform.position;
-        Ray ray = Camera.main.ScreenPointToRay(CustomCursor.Position);
-        OnMeleAttackSwing?.Invoke();
-        if (Physics.Raycast(ray, out RaycastHit hit, attackRange, attackableLayers))
+        if(Time.time - lastAttackTime > attackCooldown)
         {
-            if(hit.transform.TryGetComponent(out Health healt))
+            Vector3 rayPos = Camera.main.transform.position;
+            Ray ray = Camera.main.ScreenPointToRay(CustomCursor.Position);
+            OnMeleAttackSwing?.Invoke();
+            if (Physics.Raycast(ray, out RaycastHit hit, attackRange, attackableLayers))
             {
-                healt.TakeDamage(attackDamage, ray.direction.normalized);
-                OnMeleAttackHit?.Invoke();
+                if (hit.transform.TryGetComponent(out Health healt))
+                {
+                    healt.TakeDamage(attackDamage, ray.direction.normalized);
+                    OnMeleAttackHit?.Invoke();
+                    healt.transform.GetComponent<IHittable>().OnHit(hit.point);
+                }
             }
+            lastAttackTime = Time.time;
         }
     }
 }

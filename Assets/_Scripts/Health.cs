@@ -7,17 +7,18 @@ public class Health : MonoBehaviour
 {
     public event Action<float, float> OnHeal;
     public event Action<float, float> OnDamageUI;
-    public event Action<float, Vector2> OnDamage;
-    public event Action<Vector2> OnDead;
+    public event Action<float, Vector3> OnDamage;
+    public event Action<Vector3> OnDead;
 
     public float maxHealth;
     public float health;
-    public bool isDead = false;
 
     [SerializeField] private float invinciblePeriod = 0f;
 
     private float lastDamageTime;
     public bool IsInvincible => Time.realtimeSinceStartup - lastDamageTime < invinciblePeriod;
+
+    public bool IsDead { get; private set; } = false;
 
     public void Heal(float amount)
     {
@@ -28,10 +29,10 @@ public class Health : MonoBehaviour
     public void Revive()
     {
         health = maxHealth;
-        isDead = false;
+        IsDead = false;
         OnHeal?.Invoke(maxHealth, health);
     }
-    public void TakeDamage(float amount, Vector2 damageDirection)
+    public void TakeDamage(float amount, Vector3 damageDirection)
     {
         if (health > 0)
         {
@@ -44,15 +45,15 @@ public class Health : MonoBehaviour
                 OnDamageUI?.Invoke(maxHealth, health);
             }
         }
-        if (health <= 0 && isDead == false)
+        if (health <= 0 && IsDead == false)
         {
             Kill(damageDirection);
         }
     }
 
-    public void Kill(Vector2 damageDirection)
+    public void Kill(Vector3 damageDirection)
     {
-        isDead = true;
+        IsDead = true;
         OnDead?.Invoke(damageDirection);
     }
 }

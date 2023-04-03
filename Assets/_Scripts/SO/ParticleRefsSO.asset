@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d48e346c5b818c4fb21a2a0471c0d96, type: 3}
+  m_Name: ParticleRefsSO
+  m_EditorClassIdentifier: 
+  bloodParticle: {fileID: 6785578207301872516, guid: 8f24b0ce81120a14aac484e5e072cc63,
+    type: 3}
+  bloodSplashParticle: {fileID: 8404151510028645400, guid: 3d9622458550d68499ece20deebbf2f1,
+    type: 3}
