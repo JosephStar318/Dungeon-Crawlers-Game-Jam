@@ -9,7 +9,7 @@ public class MonsterAnimControl : MonoBehaviour
     private const string SPEED_FLOAT = "Speed";
     private const string ATTACK = "Monster_Attack";
     private const string DIE = "Monster_Die";
-
+    
     private Animator anim;
     private Monster monster;
 

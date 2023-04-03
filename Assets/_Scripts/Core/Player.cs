@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
 
     private DungeonSegment currentDungeonSegment;
     private Portal interractedPortal;
+    private CinemachineImpulseSource impulseSource;
 
     [SerializeField] LayerMask segmentLayer;
     [SerializeField] LayerMask interractableLayer;
@@ -38,6 +40,7 @@ public class Player : MonoBehaviour
         PlayerInputHelper.OnMoveChanged += PlayerInputHelper_OnMoveChanged;
         PlayerInputHelper.OnInterractPressed += PlayerInputHelper_OnInterractPressed;
         Portal.OnPortalInterract += Portal_OnPortalInterract;
+        GetComponent<Health>().OnDamage += Player_OnDamage;
     }
 
     private void OnDisable()
@@ -45,8 +48,12 @@ public class Player : MonoBehaviour
         PlayerInputHelper.OnMoveChanged -= PlayerInputHelper_OnMoveChanged;
         PlayerInputHelper.OnInterractPressed -= PlayerInputHelper_OnInterractPressed;
         Portal.OnPortalInterract -= Portal_OnPortalInterract;
+        GetComponent<Health>().OnDamage -= Player_OnDamage;
     }
-
+    private void Start()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
     private void Update()
     {
         MovePlayer();
@@ -97,6 +104,11 @@ public class Player : MonoBehaviour
 
             OnPortalEntered?.Invoke();
         }
+    }
+
+    private void Player_OnDamage(float arg1, Vector3 arg2)
+    {
+        impulseSource.GenerateImpulse();
     }
 
     private void PlayerInputHelper_OnMoveChanged(Vector2 dir)

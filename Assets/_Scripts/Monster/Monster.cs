@@ -23,6 +23,7 @@ public class Monster : MonoBehaviour, IHittable
     [SerializeField] private float attackRange = 5f;
     [SerializeField] private ParticleRefsSO particleRefsSO;
     [SerializeField] private MonsterAnimControl animControl;
+    [SerializeField] private AudioSource audioSource;
 
     private FollowPlayerState followPlayerState;
     private AttackPlayerState attackPlayerState;
@@ -79,6 +80,7 @@ public class Monster : MonoBehaviour, IHittable
     }
     private void AnimControl_OnAttack()
     {
+        audioSource.Play();
         if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, attackRange, playerLayer))
         {
             if (hit.transform.TryGetComponent(out Health health))
