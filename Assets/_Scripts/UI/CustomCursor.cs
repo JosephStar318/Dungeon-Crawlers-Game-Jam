@@ -25,6 +25,7 @@ public class CustomCursor : MonoBehaviour
 
     void Update()
     {
+        HideCursor();
         if (PlayerInputHelper.Instance.CurrentControlScheme.Equals("Gamepad"))
         {
             Vector3 dir = PlayerInputHelper.Instance.playerInputActions.Player.Look.ReadValue<Vector2>();

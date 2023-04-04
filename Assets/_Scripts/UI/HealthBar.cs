@@ -11,13 +11,18 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         health.OnDamageUI += Health_OnDamageUI;
+        health.OnHeal += Health_OnHeal;
     }
-
     private void OnDestroy()
     {
         health.OnDamageUI += Health_OnDamageUI;
+        health.OnHeal -= Health_OnHeal;
     }
     private void Health_OnDamageUI(float maxHealth, float health)
+    {
+        slider.value = Mathf.InverseLerp(0, maxHealth, health) * 10;
+    }
+    private void Health_OnHeal(float maxHealth, float health)
     {
         slider.value = Mathf.InverseLerp(0, maxHealth, health) * 10;
     }

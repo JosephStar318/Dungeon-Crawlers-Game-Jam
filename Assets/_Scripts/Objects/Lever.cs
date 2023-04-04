@@ -23,7 +23,7 @@ public class Lever : MonoBehaviour, IInterractable
         if(isTurnedOn == false)
         {
             leverAnim.Play();
-            elevatorAnim.Blend("Elevator_Elevate");
+            elevatorAnim.Play();
             audioSoruce.Play();
             isTurnedOn = true;
         }

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Monster : MonoBehaviour, IHittable
 {
     public event Action OnDieState;
+    public static event Action OnAnyMonsterKilled;
 
     private StateMachine stateMachine;
     private Animator animator;
@@ -43,7 +44,7 @@ public class Monster : MonoBehaviour, IHittable
 
         followPlayerState = new FollowPlayerState(agent, player);
         attackPlayerState = new AttackPlayerState();
-        idleState = new IdleState(idlePeriod);
+        idleState = new IdleState(this, player, idlePeriod);
         dieState = new DieState();
 
         stateMachine.AddTransition(followPlayerState, attackPlayerState, DetectedPlayer());
@@ -94,6 +95,7 @@ public class Monster : MonoBehaviour, IHittable
     {
         Instantiate(particleRefsSO.bloodSplashParticle.gameObject, transform.position, Quaternion.identity);
         OnDieState?.Invoke();
+        OnAnyMonsterKilled?.Invoke();
         Destroy(gameObject, 4f);
     }
     private void Health_OnDamage(float health, Vector3 damageDir)

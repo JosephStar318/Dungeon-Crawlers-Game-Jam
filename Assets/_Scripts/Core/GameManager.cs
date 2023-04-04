@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static event Action OnGameOver;
+    public static event Action<int> OnKillCountChanged;
+    public static event Action OnLevelFinished;
 
     private Player player;
     private MonsterSpawner monsterSpawner;
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
     private const int SegmentLength = 8;
 
     [SerializeField] private int spawnProbability = 30;
+    
+    private int killCount;
 
     private void Start()
     {
@@ -23,6 +27,19 @@ public class GameManager : MonoBehaviour
 
         player.GetComponent<Health>().OnDead += Player_OnDead;
         InvokeRepeating(nameof(SpawnMonsters), 10f, 10f);
+    }
+    private void OnEnable()
+    {
+        Monster.OnAnyMonsterKilled += Monster_OnAnyMonsterKilled;
+    }
+    private void OnDisable()
+    {
+        Monster.OnAnyMonsterKilled -= Monster_OnAnyMonsterKilled;
+    }
+    private void Monster_OnAnyMonsterKilled()
+    {
+        killCount++;
+        OnKillCountChanged?.Invoke(killCount);
     }
 
     public static void QuitGame()
@@ -47,6 +64,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public static void LevelComplete()
+    {
+        OnLevelFinished?.Invoke();
+    }
     private void Player_OnDead(Vector3 obj)
     {
 

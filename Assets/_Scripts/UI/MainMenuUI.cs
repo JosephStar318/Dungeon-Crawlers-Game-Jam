@@ -26,6 +26,7 @@ public class MainMenuUI : MonoBehaviour
         cg = GetComponent<CanvasGroup>();
         levelSelectionBtn.onClick.AddListener(LevelSelectBtnEvent);
         quitBtn.onClick.AddListener(() => GameManager.QuitGame());
+        Cursor.visible = true;
     }
     private void OnDestroy()
     {
@@ -60,7 +61,7 @@ public class MainMenuUI : MonoBehaviour
     {
         StartRotate(-Camera.main.transform.right);
         gameObject.SetActive(true);
-        StartCoroutine(cg.FadeOIn(1f));
+        StartCoroutine(cg.FadeIn(1f));
     }
     private void Update()
     {

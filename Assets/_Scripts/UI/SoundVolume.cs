@@ -37,6 +37,7 @@ public class SoundVolume : MonoBehaviour
     }
     public void OnSliderChanged(float value)
     {
+        value *= 10;
         ChangeVolume(value);
         textValue.SetText($"{value.ToString()} %");
         AudioUtility.CreateSFX(sliderChangeSfx, transform.position, AudioUtility.AudioGroups.UI, 0f);

@@ -27,7 +27,7 @@ public class LevelSelectionUI : MonoBehaviour
     {
         AfterHideFunc = action;
         gameObject.SetActive(true);
-        StartCoroutine(cg.FadeOIn(0.1f));
+        StartCoroutine(cg.FadeIn(0.1f));
     }
 
     public void LoadLevel(string levelName)

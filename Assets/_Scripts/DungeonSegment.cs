@@ -5,6 +5,7 @@ using UnityEngine;
 public class DungeonSegment : MonoBehaviour
 {
     [SerializeField] private GameObject curtain;
+    [SerializeField] private DungeonSegment neigbourSegment;
 
     [SerializeField] private Transform pivotPoint;
     [SerializeField] private bool isAccessable;
@@ -29,6 +30,13 @@ public class DungeonSegment : MonoBehaviour
     public void EnableAccess()
     {
         isAccessable = true;
+    }
+    public void EnableAccessToNeigbour()
+    {
+        if(neigbourSegment != null)
+        {
+            neigbourSegment.EnableAccess();
+        }
     }
 
     public bool IsSpawnable(out DungeonSegment dungeonSegment)

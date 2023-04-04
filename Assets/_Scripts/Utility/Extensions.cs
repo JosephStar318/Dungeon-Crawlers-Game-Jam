@@ -163,7 +163,7 @@ public static class Extensions
         action?.Invoke();
         yield return null;
     }
-    public static IEnumerator FadeOIn(this CanvasGroup cg, float time, Action action = null)
+    public static IEnumerator FadeIn(this CanvasGroup cg, float time, Action action = null)
     {
         float elapsedTime = 0f;
 
