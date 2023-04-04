@@ -16,15 +16,15 @@ public class Arrow : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.CompareTag("Player") == false && rb.velocity.magnitude > 1f)
+        if(collision.transform.CompareTag("Player") == false)
         {
             if(collision.transform.TryGetComponent(out Health health))
             {
                 health.TakeDamage(arrowDamage, transform.forward);
                 OnArrowHit?.Invoke();
                 collision.transform.GetComponent<IHittable>().OnHit(collision.collider.ClosestPoint(transform.position));
-
             }
+            Destroy(gameObject);
         }
     }
 }

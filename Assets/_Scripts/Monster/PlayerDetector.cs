@@ -11,8 +11,8 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.TransformPoint(detectionBoxCenter), detectionBoxSize);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawCube(transform.TransformPoint(detectionBoxCenter), detectionBoxSize);
     }
 
     public bool DetectPlayer(out Transform detectedTransform)

@@ -135,6 +135,7 @@ MonoBehaviour:
   curtain: {fileID: 1413919151054149724}
   pivotPoint: {fileID: 7605845942946745134}
   isAccessable: 1
+  isSpawnable: 1
 --- !u!65 &3860909484335026583
 BoxCollider:
   m_ObjectHideFlags: 0

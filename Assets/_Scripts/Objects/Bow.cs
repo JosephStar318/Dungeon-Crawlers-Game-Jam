@@ -68,6 +68,7 @@ public class Bow : MonoBehaviour
         if(attachedArrow != null)
         {
             attachedArrow.GetComponent<Rigidbody>().isKinematic = false;
+            attachedArrow.GetComponentInChildren<Collider>().enabled = true;
             attachedArrow.GetComponent<Rigidbody>().AddForce(attachedArrow.forward * arrowForce, ForceMode.Impulse);
             Destroy(attachedArrow.gameObject, 4f);
             Invoke(nameof(CreateNewArrow), 0.5f);

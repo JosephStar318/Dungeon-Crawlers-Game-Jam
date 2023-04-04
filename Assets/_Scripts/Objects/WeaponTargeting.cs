@@ -16,6 +16,10 @@ public class WeaponTargeting : MonoBehaviour
     {
         PlayerInputHelper.OnAttack += PlayerInputHelper_OnAttack;
     }
+    private void OnDisable()
+    {
+        PlayerInputHelper.OnAttack -= PlayerInputHelper_OnAttack;
+    }
 
     private void Start()
     {

@@ -149,6 +149,35 @@ public static class Extensions
         yield return new WaitForSecondsRealtime(time);
         action?.Invoke();
     }
+    public static IEnumerator FadeOut(this CanvasGroup cg, float time, Action action = null)
+    {
+        float elapsedTime = 0f;
+
+        while(elapsedTime <= time)
+        {
+            cg.alpha = Mathf.Lerp(1, 0, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        cg.alpha = 0;
+        action?.Invoke();
+        yield return null;
+    }
+    public static IEnumerator FadeOIn(this CanvasGroup cg, float time, Action action = null)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime <= time)
+        {
+            cg.alpha = Mathf.Lerp(0, 1, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        cg.alpha = 1;
+        action?.Invoke();
+        yield return null;
+    }
+
 }
 
 

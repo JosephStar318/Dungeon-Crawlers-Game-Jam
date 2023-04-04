@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTargetReached()
     {
         if (isUsingPortal)
@@ -191,5 +191,10 @@ public class Player : MonoBehaviour
         }
         dungeonSegment = default;
         return false;
+    }
+
+    public DungeonSegment GetCurrentSegment()
+    {
+        return currentDungeonSegment;
     }
 }

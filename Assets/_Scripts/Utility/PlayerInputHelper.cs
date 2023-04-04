@@ -57,7 +57,7 @@ public class PlayerInputHelper : MonoBehaviour
         playerInputActions.Player.Move.performed -= Move_performed;
         playerInputActions.Player.Interract.performed -= Interract_performed;
         playerInputActions.Player.Attack.performed -= Attack_performed;
-        playerInputActions.Player.Drawing.performed += Drawing;
+        playerInputActions.Player.Drawing.performed -= Drawing;
         playerInputActions.Player.Drawing.canceled -= Drawing;
         playerInputActions.Player.Swap.performed -= Swap_performed;
         playerInputActions.Player.Pause.performed -= Pause_performed;
@@ -65,7 +65,7 @@ public class PlayerInputHelper : MonoBehaviour
         playerInputActions.UI.Cancel.performed -= Cancel_performed;
         playerInputActions.UI.Back.performed -= Back_performed;
 
-        playerInput.onControlsChanged += PlayerInput_onControlsChanged;
+        playerInput.onControlsChanged -= PlayerInput_onControlsChanged;
     }
     public void ChangeActionMap(string mapName)
     {

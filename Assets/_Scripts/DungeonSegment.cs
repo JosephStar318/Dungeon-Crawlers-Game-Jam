@@ -8,6 +8,7 @@ public class DungeonSegment : MonoBehaviour
 
     [SerializeField] private Transform pivotPoint;
     [SerializeField] private bool isAccessable;
+    [SerializeField] private bool isSpawnable;
 
     public bool IsAccessable { get => isAccessable; }
     
@@ -28,6 +29,12 @@ public class DungeonSegment : MonoBehaviour
     public void EnableAccess()
     {
         isAccessable = true;
+    }
+
+    public bool IsSpawnable(out DungeonSegment dungeonSegment)
+    {
+        dungeonSegment = this;
+        return isSpawnable;
     }
 
 }
