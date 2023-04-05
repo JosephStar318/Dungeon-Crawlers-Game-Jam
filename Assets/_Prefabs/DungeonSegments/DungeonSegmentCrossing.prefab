@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806098142942220179}
   - component: {fileID: 2556184593051916322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6990433756349728907}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &2556184593051916322
 SpriteRenderer:
@@ -164,6 +164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DungeonSegmentCrossing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471489238863416213, guid: 0104f280c1dc0f0419e0dc151f10698a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7605845942946745134, guid: 0104f280c1dc0f0419e0dc151f10698a,
         type: 3}

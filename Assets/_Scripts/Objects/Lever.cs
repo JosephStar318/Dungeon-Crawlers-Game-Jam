@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour, IInterractable
 {
-    [SerializeField] private Animation elevatorAnim;
+    [SerializeField] private DungeonSegment[] dungeonSegments;
     [SerializeField] private Animation leverAnim;
     private AudioSource audioSoruce;
 
@@ -23,7 +23,12 @@ public class Lever : MonoBehaviour, IInterractable
         if(isTurnedOn == false)
         {
             leverAnim.Play();
-            elevatorAnim.Play();
+            
+            foreach (DungeonSegment item in dungeonSegments)
+            {
+                item.GetComponent<Animation>().Play();
+            }
+
             audioSoruce.Play();
             isTurnedOn = true;
         }

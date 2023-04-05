@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
         if (isUsingPortal)
         {
             transform.position = interractedPortal.GetAttachedPortal().transform.position;
+            transform.rotation = interractedPortal.GetAttachedPortal().transform.rotation;
 
             DungeonSegment dungeonSegment;
             TryGetDungeonSegmentInMoveDirection(1, out dungeonSegment);

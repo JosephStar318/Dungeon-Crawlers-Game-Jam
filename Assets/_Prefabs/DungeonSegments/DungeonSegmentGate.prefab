@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9190206855829954102}
   - component: {fileID: 8382852593878011562}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,5 +821,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09497e2f45e32f140989027a72bf41dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevatorAnim: {fileID: 7458323062498933427}
+  dungeonSegments: []
   leverAnim: {fileID: 4778491063981030850}

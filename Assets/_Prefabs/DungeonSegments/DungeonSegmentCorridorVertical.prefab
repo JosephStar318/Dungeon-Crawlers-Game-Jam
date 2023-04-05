@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9190206855829954102}
   - component: {fileID: 8382852593878011562}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6990433756349728907}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8382852593878011562
 SpriteRenderer:
@@ -95,6 +95,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DungeonSegmentCorridorVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471489238863416213, guid: 0104f280c1dc0f0419e0dc151f10698a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8125974408156432810, guid: 0104f280c1dc0f0419e0dc151f10698a,
         type: 3}

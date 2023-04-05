@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DungeonSegment : MonoBehaviour
 {
+    public event Action OnVisibleOnMinimap;
+    public event Action OnEnabledAccess;
+
     [SerializeField] private GameObject curtain;
     [SerializeField] private DungeonSegment neigbourSegment;
 
@@ -25,11 +29,13 @@ public class DungeonSegment : MonoBehaviour
     public void ShowInMinimap()
     {
         curtain.SetActive(false);
+        OnVisibleOnMinimap?.Invoke();
     }
 
     public void EnableAccess()
     {
         isAccessable = true;
+        OnEnabledAccess?.Invoke();
     }
     public void EnableAccessToNeigbour()
     {
