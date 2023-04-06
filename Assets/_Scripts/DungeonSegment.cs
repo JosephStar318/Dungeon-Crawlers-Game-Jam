@@ -27,7 +27,7 @@ public class DungeonSegment : MonoBehaviour
             }
             else
             {
-                Collider[] colls = Physics.OverlapBox(segmentCollider.bounds.center, segmentCollider.bounds.size, Quaternion.identity, enemyLayer);
+                Collider[] colls = Physics.OverlapBox(segmentCollider.bounds.center, segmentCollider.bounds.size*0.5f, Quaternion.identity, enemyLayer);
                 if (colls.Length > 1)
                 {
                     return false;

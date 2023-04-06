@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerInputHelper : MonoBehaviour
 {
@@ -18,10 +19,10 @@ public class PlayerInputHelper : MonoBehaviour
     public static event Action<bool> OnDrawing;
 
     public static event Action OnPause;
-
     public static event Action OnCancelUI;
     public static event Action OnBackUI;
 
+    public EventSystem Eventsystem { get; private set; }
     public string CurrentControlScheme { get; private set; } = "KeyboardMouse";
 
     private void Awake()
@@ -36,6 +37,7 @@ public class PlayerInputHelper : MonoBehaviour
     {
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
+        Eventsystem = EventSystem.current;
         playerInputActions.Enable();
 
         playerInputActions.Player.Move.performed += Move_performed;
@@ -83,11 +85,19 @@ public class PlayerInputHelper : MonoBehaviour
     {
         playerInputActions.Player.Disable();
         playerInputActions.UI.Enable();
+        Eventsystem.enabled = true;
     }
     public void EnablePlayerActions()
     {
         playerInputActions.Player.Enable();
         playerInputActions.UI.Disable();
+    }
+    public void DisableActions()
+    {
+        playerInputActions.Player.Disable();
+        playerInputActions.UI.Disable();
+        Eventsystem.enabled = false;
+
     }
     public InputActionMap GetCurrentActionMap()
     {

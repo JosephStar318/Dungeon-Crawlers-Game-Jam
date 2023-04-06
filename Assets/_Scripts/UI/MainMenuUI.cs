@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -46,11 +47,13 @@ public class MainMenuUI : MonoBehaviour
         startRotation = Camera.main.transform.rotation;
         targetRotation = Quaternion.LookRotation(dir, Vector3.up);
         rotationCurveIndex = 0;
+        PlayerInputHelper.Instance.DisableActions();
     }
     private void RotationFinished()
     {
         if(cg.alpha == 0)
             Hide();
+        PlayerInputHelper.Instance.EnableUIActions();
     }
     private void Hide()
     {

@@ -7,16 +7,16 @@ public class SelectOnActive : MonoBehaviour
 {
     private void OnEnable()
     {
-        if (EventSystem.current != null)
+        if (PlayerInputHelper.Instance.Eventsystem != null)
         {
-            EventSystem.current.SetSelectedGameObject(gameObject);
+            PlayerInputHelper.Instance.Eventsystem.SetSelectedGameObject(gameObject);
         }
     }
     void Start()
     {
-        if(EventSystem.current != null)
+        if (PlayerInputHelper.Instance.Eventsystem != null)
         {
-            EventSystem.current.SetSelectedGameObject(gameObject);
+            PlayerInputHelper.Instance.Eventsystem.SetSelectedGameObject(gameObject);
         }
     }
 

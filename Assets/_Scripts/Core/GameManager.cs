@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     public static void LevelComplete()
     {
         Time.timeScale = 0;
+        PlayerInputHelper.Instance.EnableUIActions();
         OnLevelFinished?.Invoke();
     }
     public static int GetKillCount()
