@@ -156,8 +156,8 @@ public static class Extensions
         while(elapsedTime <= time)
         {
             cg.alpha = Mathf.Lerp(1, 0, elapsedTime / time);
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            elapsedTime += 0.02f;
+            yield return new WaitForSecondsRealtime(0.02f);
         }
         cg.alpha = 0;
         action?.Invoke();
@@ -170,8 +170,8 @@ public static class Extensions
         while (elapsedTime <= time)
         {
             cg.alpha = Mathf.Lerp(0, 1, elapsedTime / time);
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            elapsedTime += 0.02f;
+            yield return new WaitForSecondsRealtime(0.02f);
         }
         cg.alpha = 1;
         action?.Invoke();

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4471489238863416213}
   - component: {fileID: 8783451859046291253}
   m_Layer: 10
-  m_Name: Square
+  m_Name: Curtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4471489238863416213
 Transform:
   m_ObjectHideFlags: 0
@@ -137,6 +137,10 @@ MonoBehaviour:
   pivotPoint: {fileID: 7605845942946745134}
   isAccessable: 1
   isSpawnable: 1
+  segmentCollider: {fileID: 3860909484335026583}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!65 &3860909484335026583
 BoxCollider:
   m_ObjectHideFlags: 0

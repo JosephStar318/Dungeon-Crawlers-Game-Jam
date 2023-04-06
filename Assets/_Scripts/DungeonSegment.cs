@@ -15,7 +15,27 @@ public class DungeonSegment : MonoBehaviour
     [SerializeField] private bool isAccessable;
     [SerializeField] private bool isSpawnable;
 
-    public bool IsAccessable { get => isAccessable; }
+    [SerializeField] private Collider segmentCollider;
+    [SerializeField] private LayerMask enemyLayer;
+    public bool IsAccessable 
+    { 
+        get
+        {
+            if (isAccessable == false)
+            {
+                return false;
+            }
+            else
+            {
+                Collider[] colls = Physics.OverlapBox(segmentCollider.bounds.center, segmentCollider.bounds.size, Quaternion.identity, enemyLayer);
+                if (colls.Length > 1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        } 
+    }
     
     public Vector3 GetPivotPosition()
     {

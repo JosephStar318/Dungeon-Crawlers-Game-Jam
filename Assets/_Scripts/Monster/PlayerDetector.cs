@@ -11,13 +11,13 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawCube(transform.TransformPoint(detectionBoxCenter), detectionBoxSize);
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.TransformPoint(detectionBoxCenter), detectionBoxSize);
     }
 
     public bool DetectPlayer(out Transform detectedTransform)
     {
-        Collider[] colliders = Physics.OverlapBox(transform.TransformPoint(detectionBoxCenter), detectionBoxSize, transform.rotation, detectionLayer);
+        Collider[] colliders = Physics.OverlapBox(transform.TransformPoint(detectionBoxCenter), detectionBoxSize * 0.5f, transform.rotation, detectionLayer);
 
         if (colliders.Length > 0)
         {

@@ -155,7 +155,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationSpeed: 5
-  moveSpeed: 5
+  moveSpeed: 3
 --- !u!114 &1872817320127219917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,9 +397,9 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8600000, guid: c9ea28bf5f4789f4fa8e612f814727fe, type: 2}
+  m_TargetTexture: {fileID: 8600000, guid: 423f5f2bfc9889d4295247b82c48cc3c, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -509,7 +509,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872817320976036607
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,11 +1322,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe
       objectReference: {fileID: 0}
-    - target: {fileID: 6705731530035316094, guid: 4fb4b5918cc421a47b55018d39fdfaab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb4b5918cc421a47b55018d39fdfaab, type: 3}
 --- !u!1 &4107714159140619847 stripped
@@ -1396,7 +1391,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 35
-  attackRange: 8
+  attackRange: 9
   attackCooldown: 0.5
 --- !u!4 &5959549772649045339 stripped
 Transform:

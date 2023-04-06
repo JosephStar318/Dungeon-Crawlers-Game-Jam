@@ -30,7 +30,7 @@ public class MeleAttack : MonoBehaviour
             Vector3 rayPos = Camera.main.transform.position;
             Ray ray = Camera.main.ScreenPointToRay(CustomCursor.Position);
             OnMeleAttackSwing?.Invoke();
-            if (Physics.Raycast(ray, out RaycastHit hit, attackRange, attackableLayers))
+            if (Physics.Raycast(ray, out RaycastHit hit, attackRange))
             {
                 if (hit.transform.TryGetComponent(out Health healt))
                 {

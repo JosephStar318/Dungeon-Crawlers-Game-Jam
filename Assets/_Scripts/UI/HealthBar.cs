@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
     }
     private void OnDestroy()
     {
-        health.OnDamageUI += Health_OnDamageUI;
+        health.OnDamageUI -= Health_OnDamageUI;
         health.OnHeal -= Health_OnHeal;
     }
     private void Health_OnDamageUI(float maxHealth, float health)

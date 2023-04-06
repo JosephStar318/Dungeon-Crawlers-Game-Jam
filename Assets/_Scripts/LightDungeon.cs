@@ -17,13 +17,13 @@ public class LightDungeon : MonoBehaviour
     }
     private void OnEnable()
     {
-        refDungeonSegment.OnVisibleOnMinimap += RefDungeonSegment_OnEnableAccess;
+        refDungeonSegment.OnVisibleOnMinimap += RefDungeonSegment_OnVisibleOnMinimap;
     }
     private void OnDisable()
     {
-        refDungeonSegment.OnVisibleOnMinimap -= RefDungeonSegment_OnEnableAccess;
+        refDungeonSegment.OnVisibleOnMinimap -= RefDungeonSegment_OnVisibleOnMinimap;
     }
-    private void RefDungeonSegment_OnEnableAccess()
+    private void RefDungeonSegment_OnVisibleOnMinimap()
     {
         dungeonSegment.EnableAccess();
         visualBlock.SetActive(false);

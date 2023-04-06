@@ -71,7 +71,7 @@ public class Monster : MonoBehaviour, IHittable
     private void OnDestroy()
     {
         health.OnDead -= Health_OnDead;
-        health.OnDamage += Health_OnDamage;
+        health.OnDamage -= Health_OnDamage;
         animControl.OnAttack -= AnimControl_OnAttack;
     }
 

@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int spawnProbability = 30;
     
-    private int killCount;
+    private static int killCount;
 
     private void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
         monsterSpawner = GetComponent<MonsterSpawner>();
-
+        killCount = 0;
         player.GetComponent<Health>().OnDead += Player_OnDead;
         InvokeRepeating(nameof(SpawnMonsters), 10f, 10f);
     }
@@ -66,11 +66,15 @@ public class GameManager : MonoBehaviour
 
     public static void LevelComplete()
     {
+        Time.timeScale = 0;
         OnLevelFinished?.Invoke();
+    }
+    public static int GetKillCount()
+    {
+        return killCount;
     }
     private void Player_OnDead(Vector3 obj)
     {
-
         OnGameOver?.Invoke();
     }
 
