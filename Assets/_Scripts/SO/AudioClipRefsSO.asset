@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2418e64f046d0874f9ac7405cbbd9ecb, type: 3}
   bowStreching: {fileID: 8300000, guid: 517cbc2597b700248b5c898e7c422b38, type: 3}
   arrowShoot: {fileID: 8300000, guid: cdddb889478538d43ab0b0f61573008e, type: 3}
+  portalEnterClip: {fileID: 8300000, guid: fe8cf5cb5d94455499d1fcfb9932e525, type: 3}

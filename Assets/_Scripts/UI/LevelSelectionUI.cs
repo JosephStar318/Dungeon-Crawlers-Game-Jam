@@ -14,7 +14,10 @@ public class LevelSelectionUI : MonoBehaviour
     private void OnDisable() => PlayerInputHelper.OnBackUI -= PlayerInputHelper_OnBackUI;
     public void PlayerInputHelper_OnBackUI()
     {
-        Hide();
+        if (PlayerInputHelper.Instance.IsUIActionsEnabled())
+        {
+            Hide();
+        }
     }
     public void Hide()
     {

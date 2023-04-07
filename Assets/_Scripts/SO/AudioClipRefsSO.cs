@@ -11,4 +11,5 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] monsterDieClips;
     public AudioClip bowStreching;
     public AudioClip arrowShoot;
+    public AudioClip portalEnterClip;
 }

@@ -10,6 +10,7 @@ public class PlayerSFX : MonoBehaviour
     private void OnEnable()
     {
         Player.OnPlayerMoved += Player_OnPlayerMoved;
+        Portal.OnPortalInterract += Portal_OnPortalInterract;
         MeleAttack.OnMeleAttackSwing += MeleAttack_OnMeleAttackSwing;
         MeleAttack.OnMeleAttackHit += MeleAttack_OnMeleAttackHit;
         Arrow.OnArrowHit += MeleAttack_OnMeleAttackHit;
@@ -17,22 +18,25 @@ public class PlayerSFX : MonoBehaviour
         Bow.OnArrowShoot += Bow_OnArrowShoot;
         health.OnDamage += Health_OnDamage;
     }
-
-    private void Health_OnDamage(float arg1, Vector3 arg2)
-    {
-        AudioClip randomClip = audioClipRefsSO.getHitClips[UnityEngine.Random.Range(0, audioClipRefsSO.getHitClips.Length)];
-        AudioUtility.CreateSFX(randomClip, transform.position, AudioUtility.AudioGroups.SFX, 1f);
-    }
-
     private void OnDisable()
     {
         Player.OnPlayerMoved -= Player_OnPlayerMoved;
+        Portal.OnPortalInterract -= Portal_OnPortalInterract;
         MeleAttack.OnMeleAttackSwing -= MeleAttack_OnMeleAttackSwing;
         MeleAttack.OnMeleAttackHit -= MeleAttack_OnMeleAttackHit;
         Arrow.OnArrowHit -= MeleAttack_OnMeleAttackHit;
         Bow.OnBowDraw -= Bow_OnBowDraw;
         Bow.OnArrowShoot -= Bow_OnArrowShoot;
         health.OnDamage -= Health_OnDamage;
+    }
+    private void Portal_OnPortalInterract(Portal obj)
+    {
+        AudioUtility.CreateSFX(audioClipRefsSO.portalEnterClip, transform.position, AudioUtility.AudioGroups.SFX, 0f);
+    }
+    private void Health_OnDamage(float arg1, Vector3 arg2)
+    {
+        AudioClip randomClip = audioClipRefsSO.getHitClips[UnityEngine.Random.Range(0, audioClipRefsSO.getHitClips.Length)];
+        AudioUtility.CreateSFX(randomClip, transform.position, AudioUtility.AudioGroups.SFX, 1f);
     }
     private void Bow_OnArrowShoot()
     {

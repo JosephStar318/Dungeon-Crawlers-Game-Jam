@@ -86,18 +86,25 @@ public class PlayerInputHelper : MonoBehaviour
         playerInputActions.Player.Disable();
         playerInputActions.UI.Enable();
         Eventsystem.enabled = true;
+        playerInput.enabled = true;
+
     }
     public void EnablePlayerActions()
     {
         playerInputActions.Player.Enable();
         playerInputActions.UI.Disable();
+        playerInput.enabled = true;
     }
     public void DisableActions()
     {
         playerInputActions.Player.Disable();
         playerInputActions.UI.Disable();
+        playerInput.enabled = false;
         Eventsystem.enabled = false;
-
+    }
+    public bool IsUIActionsEnabled()
+    {
+        return playerInputActions.UI.enabled;
     }
     public InputActionMap GetCurrentActionMap()
     {
