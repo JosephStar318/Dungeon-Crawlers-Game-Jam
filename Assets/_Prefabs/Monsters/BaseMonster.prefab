@@ -111,6 +111,7 @@ MonoBehaviour:
   particleRefsSO: {fileID: 11400000, guid: 30324c7a275c67d4d82c49ab93fa5581, type: 2}
   animControl: {fileID: 0}
   audioSource: {fileID: 6949897151060280430}
+  dieSfx: {fileID: 8300000, guid: 395912bb7e1acf14682bcbf896003c00, type: 3}
 --- !u!114 &4633829716103423975
 MonoBehaviour:
   m_ObjectHideFlags: 0

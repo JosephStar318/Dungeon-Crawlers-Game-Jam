@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour, IHittable
     [SerializeField] private ParticleRefsSO particleRefsSO;
     [SerializeField] private MonsterAnimControl animControl;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip dieSfx;
 
     private FollowPlayerState followPlayerState;
     private AttackPlayerState attackPlayerState;
@@ -94,6 +95,7 @@ public class Monster : MonoBehaviour, IHittable
     private void Health_OnDead(Vector3 dir)
     {
         Instantiate(particleRefsSO.bloodSplashParticle.gameObject, transform.position, Quaternion.identity);
+        AudioUtility.CreateSFX(dieSfx, transform.position, AudioUtility.AudioGroups.SFX, 1f);
         OnDieState?.Invoke();
         OnAnyMonsterKilled?.Invoke();
         Destroy(gameObject, 4f);
